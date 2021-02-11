@@ -1,0 +1,38 @@
+  <html>
+  <head>
+    <title>Graphical Viz</title>
+    <link rel="shortcut icon" type="image/png" href="/static/graph-shortcut.png">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        
+        
+        var options = {
+          title: 'Corona Cases Overview:',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+
+        };
+        var a={{ lstmain | tojson }};
+        var data = google.visualization.arrayToDataTable(a);
+
+        var chart = new google.charts.Line(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <style>
+      .chart{
+        margin: 200px auto;
+        width: 1300px;
+        height: 700px
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart_div" class="chart"></div>
+  </body>
+</html>

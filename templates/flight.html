@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Flight Prediction Model</title>
+  <link rel="shortcut icon" type="image/png" href="/static/flight-shortcut-icon.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    .container-fluid {
+    padding: 50px 50px;
+  }
+  .panel:hover {
+    box-shadow: 10px 0px 40px rgba(0,0,0, .2);
+  }
+    .sizer{
+      padding: 70px ;
+    }
+    #bttn{
+      text-align: center;
+      color: blue;
+      padding:10px;
+      margin:50px 0px 50px 510px ;
+      
+    }
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      background-image:url("/static/flight-background.jpg");
+      background-size: cover;
+      margin-bottom: 0;
+      padding: 250px 25px;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 50px;
+      color: #f4511e;
+    }
+  </style>
+</head>
+<body>
+
+<div id="myPage" class="jumbotron">
+  <div class="container text-center">
+    <h1>Flight Fare Prediction</h1> 
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3>Predict your Flight Fare using Machine Learning Model</h3>    
+  </div>
+</div>
+<hr>
+<form action="\flight" method="post">
+  <div class="container">    
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center"><h4>DEPARTURE DATE AND TIME</h4></div>
+          <div class="sizer text-center"><input type="datetime-local" name="Dep_Time" id="Dep_Time" required="required" style="font-size: 20px"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="col-sm-6"> 
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center"><h4>ARRIVAL DATE AND TIME</h4></div>
+          <div class="sizer text-center"><input type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required" style="font-size: 20px"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div><br>
+
+  <div class="container">    
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center"><h4>SOURCE</h4></div>
+          <div class="sizer text-center"><select name="Source" id="Source" required="required" style="font-size: 20px">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Kolkata">Kolkata</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Chennai">Chennai</option>
+                                <option value="Banglore">Banglore</option>
+                            </select></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="col-sm-6"> 
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center"><h4>DESTINATION</h4></div>
+          <div class="sizer text-center"><select name="Destination" id="Destination" required="required" style="font-size: 20px">
+                                <option value="Cochin">Cochin</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="New Delhi">New Delhi</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Kolkata">Kolkata</option>
+                                <option value="Banglore">Banglore</option>
+                            </select></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">    
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center"><h4>STOPAGE</h4></div>
+          <div class="sizer text-center"><select name="stops" id="stops" required="required" style="font-size: 20px">
+                                <option value="0">Non-Stop</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="col-sm-6"> 
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center"><h4>AIRLINE</h4></div>
+          <div class="sizer text-center"><select name="airline" id="airline" required="required" style="font-size: 20px">
+                                <option value="Jet Airways">Jet Airways</option>
+                                <option value="IndiGo">IndiGo</option>
+                                <option value="Air India">Air India</option>
+                                <option value="Multiple carriers">Multiple carriers</option>
+                                <option value="SpiceJet">SpiceJet</option>
+                                <option value="Vistara">Vistara</option>
+                                <option value="Air Asia">Air Asia</option>
+                                <option value="GoAir">GoAir</option>
+                                <option value="Multiple carriers Premium economy">Multiple carriers Premium economy
+                                </option>
+                                <option value="Jet Airways Business">Jet Airways Business</option>
+                                <option value="Vistara Premium economy">Vistara Premium economy</option>
+                                <option value="Trujet">Trujet</option>
+                            </select></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    
+      <input type="submit" value="FLIGHT FARE" id="bttn" />  
+ 
+  </div>
+</form>
+
+<footer class="container-fluid text-center">
+  <h3>{{ prediction }}</h3>
+  <br>
+  <br>
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a> 
+  <br>
+    
+  </form>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>

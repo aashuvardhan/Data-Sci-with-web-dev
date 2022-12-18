@@ -645,4 +645,4 @@ def corona():
     return render_template("Corona.html",lstmain=lstmain,choice=choice)
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(debug=False,host='0.0.0.0')
